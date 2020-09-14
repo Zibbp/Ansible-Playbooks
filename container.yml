@@ -1,0 +1,12 @@
+---
+- hosts: linux
+  become: true
+
+  tasks:
+    - name: Create container
+      docker_container:
+        name: nginx_test_2
+        image: nginx:latest
+        state: started
+        ports:
+         - "8080:80"
